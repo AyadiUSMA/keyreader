@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<!-- Page Content -->
+
+<head >
+
+    <title>KEY MANAGER WEBSITE</title>
+    <div class = "w3-heading">
+
+        <h1 style="text-align: center" ><span style="color: #00f0ff;">KEYS MANAGER APPLICATION</span></h1>
+        <h3 style="text-align:right">User: </h3>
+        <p style="text-align: center;">
+            <span style="color: #000000;">this page shows the details of the clicked key: {{thekey.keyname}}</span></p>
+        <button type="submit" formaction="/keystate/">return to main</button>
+    </div>
+
+
+
+
+
+</head>
+
+<style>
+body {font-family: "Montserrat", sans-serif background: white url("image.jpg") no-repeat;}
+h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.head {background: #00ff}
+/* Set the width of the sidebar to 120px */
+.w3-heading {background: #0000ff;}
+.w3-sidebar {width: 120px;background: #00ff;}
+.w3-medium {background: #0fff;text-align:center;position:center}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+.w3-content {text-align:center;position:center}
+</style>
+
+<body bgcolor= "#E6E6FA" style=" background: url('image.png')">
+    <div class="w3-padding-large" id="main">
+    <img src="keys.jpg" style="width:300px;position:center" alt="" />
+
+    <table style=" background-color: turquoise;color:black; margin-left: auto;
+        margin-right: auto;text-align: center;" border="3">
+        <thead >
+            <tr style="background-colour: green">
+               <td><h2> KEY NUMBER</h2></td>
+               <td><h2>KEY NAME</h2></td>
+               <td><h2>KEY ADDRESS</h2></td>
+               <td><h2>KEY CATEGORY </h2></td>
+               <td><h2>CURRENT USER </h2></td>
+            </tr>
+        </thead>
+
+        <tbody>
+          <tr><td><h4>{{thekey.keytag}}</a></h4></td>
+              <td><h4> {{thekey.keyname}}</a></h4></td>
+              <td><h4> {{thekey.address}}</a></h4></td>
+              <td><h4> {{thekey.key_categ}}</a></h4></td>
+              <td><h4> {{thekey.curr_user}}</a></h4></td>
+          </tr>
+        </tbody>
+
+    </table>
+
+</br>
+</br>
+<img src="image.png">        
+</br>
+
+    <table style=" background-color: turquoise;color:black; margin-left: auto;
+        margin-right: auto;text-align: center;" border="3">
+        <thead >
+            <tr style="background-colour: white">
+               <td><h2> USERNAME CHECKOUT</h2></td>
+               <td><h2>DATE CHECKOUT</h2></td>
+               <td><h2>CHECKOUT STATUS</h2></td>
+            </tr>
+        </thead>
+        {%for keyHistory in thekey.keyhistory_set.all%}
+        <tbody>
+          <tr><td><h4>{{keyHistory.user_checkout}}</a></h4></td>
+              <td><h4> {{keyHistory.date_checkout}}</a></h4></td>
+              <td><h4> {{keyHistory.state_checkout}}</a></h4></td>
+
+          </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+
+
+
+    <!-- Footer -->
+  <footer>
+
+    <p class="w3-medium" >Powered by AYADI AYMEN/AYADI ANOUAR</p>
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+{%load static%}
+
+<img src="{keystate/keys.jpg" %}>
+
+<h1>{{thekey.keyname}}</h1>
+<h3>{{thekey.curr_user}} </h3>
+
+<ul>
+    {%for keyHistory in thekey.keyhistory_set.all%}
+        <li>{{keyHistory.user_checkout}} - {{keyHistory.date_checkout}} - {{keyHistory.state_checkout}}</li>
+    {% endfor %}
+</ul>
+
+

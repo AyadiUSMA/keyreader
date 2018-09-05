@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<!-- Page Content -->
+
+<head >
+
+
+    <div class = "w3-heading">
+
+        <h1 style="text-align: center" ><span style="color: #00f0ff;">KEYS MANAGER APPLICATION</span></h1>
+
+    </div>
+
+
+
+
+
+</head>
+
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif,text-align:center}
+.head {background: #00ff}
+/* Set the width of the sidebar to 120px */
+.w3-heading {background: #0000ff;}
+.w3-sidebar {width: 120px;background: #00ff;}
+.w3-medium {background: #0fff;text-align:center;position:center}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+.w3-content {text-align:center;position:center}
+.w3-padding-large {text-align:center;position:center}
+</style>
+
+<body bgcolor= "#E6E6FA">
+    <div class="w3-padding-large" id="main">
+
+    {% block title %}Login{% endblock %}
+<table border="5">
+{% block content %}
+  <h2>Login</h2>
+  <form method="post" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+{% endblock %}
+
+</table>
+
+
+
+
+<!-- END PAGE CONTENT -->
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<!-- Page Content -->
+
+<head >
+
+    <title>KEY MANAGER WEBSITE</title>
+    <div class = "w3-heading">
+
+        <h1 style="text-align: center" ><span style="color: #00f0ff;">KEYS MANAGER APPLICATION</span></h1>
+        <h3 style="text-align:right">User: </h3>
+        <p style="text-align: center;">
+            <span style="color: #000000;">this page shows all availabe keys in the system</span>
+        </p>
+    </div>
+
+
+
+
+
+</head>
+
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.head {background: #00ff}
+/* Set the width of the sidebar to 120px */
+.w3-heading {background: #0000ff;}
+.w3-sidebar {width: 120px;background: #00ff;}
+.w3-medium {background: #0fff;text-align:center;position:center}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+.w3-content {text-align:center;position:center}
+</style>
+
+<body bgcolor= "#E6E6FA">
+    <div class="w3-padding-large" id="main">
+    <img src="keys.jpg" style="width:300px;position:center" alt="" />
+    <table style=" background-color: turquoise;color:black; margin-left: auto;
+        margin-right: auto;text-align: center;" border="3">
+        <thead >
+            <tr style="background-colour: green">
+               <td>
+                   <h2> KEY NUMBER</h2>
+               </td>
+
+               <td>
+                   <h2>KEY NAME</h2>
+               </td>
+
+               <td>
+                   <h2>KEY ADDRESS</h2>
+               </td>
+               <td>
+                   <h2>KEY CATEGORY </h2>
+               </td>
+            </tr>
+        </thead>
+        {% for key in all_keys %}
+
+        <tbody>
+          <tr>
+
+               <td>
+                   <h4><a href="/keystate/{{key.keytag}}/"> {{key.keytag}}</a></h4>
+               </td>
+
+               <td>
+                   <h4><a href="/keystate/{{key.keytag}}/"> {{key.keyname}}</a></h4>
+               </td>
+
+               <td>
+                   <h4><a href="/keystate/{{key.keytag}}/"> {{key.address}}</a></h4>
+               </td>
+               <td>
+                   <h4><a href="/keystate/{{key.keytag}}/"> {{key.key_categ}}</a></h4>
+               </td>
+
+            </tr>
+
+        </tbody>
+        {% endfor %}
+    </table>
+
+
+
+
+    <!-- Footer -->
+  <footer>
+
+    <p class="w3-medium" >Powered by AYADI AYMEN/AYADI ANOUAR</p>
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+
+
+
+</body>
+</html>
+
+
+
